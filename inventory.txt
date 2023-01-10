@@ -15,7 +15,7 @@ Israel,SKU29888,Air Zoom Generation,2680,30
 Uganda,SKU33000,Flyknit Racer,4900,9
 Pakistan,SKU77999,Air Yeezy 2,4389,67
 Brazil,SKU44600,Air Jordan 11,3870,24
-Columbia,SKU87500,Air Huarache,2683,8
+Columbia,SKU87500,Air Huarache,2683,20
 India,SKU38773,Air Max 1,1900,29
 Vietnam,SKU95000,Air Mag,2000,60
 Israel,SKU79084,Air Foamposite,2430,20
@@ -26,3 +26,6 @@ France,SKU20394,Eric Koston 1,2322,17
 Romania,SKU9008,Jordans 2,2000,20
 Romania,SKU12344,Jordan 2,2000,19
 England,SKU1234,Jordans 4,3100,61
+England,12345,Product Test,1200,8
+The Netherlands,99999,Product test 2,1999,67
+France,23423,Product Test 3,1000,8

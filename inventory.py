@@ -7,14 +7,16 @@
 #   https://fsymbols.com/keyboard/windows/alt-codes/list/
 
 
-
 from tabulate import tabulate
+
+
 # if you have not got the tabulate module installed, please install it
 # instructions here: https://pypi.org/project/tabulate/
-#========The beginning of the class==========
+# ========The beginning of the class==========
 class Shoe:
     """A class for creating shoe objects
     """
+
     def __init__(self, country, code, product, cost, quantity):
         """Initializing the shoe object
 
@@ -30,7 +32,7 @@ class Shoe:
         self.product = product
         self.cost = cost
         self.quantity = quantity
-        
+
     def get_cost(self):
         """A function that returns the cost of the object
 
@@ -55,8 +57,11 @@ class Shoe:
         """
         return f"{self.country},{self.code},{self.product},{self.cost},{self.quantity}"
 
+
 shoe_list = []
-#==========Functions outside the class==============
+
+
+# ==========Functions outside the class==============
 def read_shoes_data():
     """A function that reads the inventory.txt file and
     returns a 2D list of items.
@@ -65,7 +70,7 @@ def read_shoes_data():
         list: each parameter of the products are list items and 
               are nested inside a bigger list
     """
-    with open("inventory.txt","r") as f:
+    with open("inventory.txt", "r") as f:
         data = f.readlines()[1:]
         for i in range(len(data)):
             data[i] = data[i].strip("\n").split(",")
@@ -78,6 +83,7 @@ def read_shoes_data():
     data to create one object of shoes. You must use the try-except in this function
     for error handling. Remember to skip the first line using your code.
     '''
+
 
 def capture_shoes():
     """A function that capture's the Shoe object details from the user,
@@ -106,7 +112,8 @@ def capture_shoes():
             display.append(row)
             ask = False
     if len(display) != 0:
-        print(tabulate(display,headers=["Country","Code","Product","Cost","Quantity"],tablefmt="rounded_grid",numalign="left"))
+        print(tabulate(display, headers=["Country", "Code", "Product", "Cost", "Quantity"], tablefmt="rounded_grid",
+                       numalign="left"))
     # if product doesn't exist, ask for the quantity on hand
     # and create and add the product to inventory
     # then update the "shoe_list" with the updated inventory
@@ -116,8 +123,8 @@ def capture_shoes():
             try:
                 int(quantity)
                 ask = False
-                shoe = f"\n{Shoe(country,code,product,cost,quantity).__str__()}"
-                with open("inventory.txt","a") as f:
+                shoe = f"\n{Shoe(country, code, product, cost, quantity).__str__()}"
+                with open("inventory.txt", "a") as f:
                     f.write(shoe)
                 f.close()
                 shoe_list = read_shoes_data()
@@ -125,12 +132,14 @@ def capture_shoes():
             except:
                 print("Incorrect value entered. Try again (should be a whole number).")
 
+
 def view_all():
     """A function that allows the user to view all products and
     their current stored information
     """
     shoe_data = read_shoes_data()
-    data = tabulate(shoe_data, headers=["Country","Code","Product","Cost","Quantity"],tablefmt="rounded_grid",numalign="left")
+    data = tabulate(shoe_data, headers=["Country", "Code", "Product", "Cost", "Quantity"], tablefmt="rounded_grid",
+                    numalign="left")
     print("""
                     ╔════════════════════════════╗
                       \033[1m\033[92mCurrent Inventory on Hand\033[0m
@@ -144,22 +153,23 @@ def view_all():
     by using Python’s tabulate module.
     '''
 
+
 def update_inventory(modified_list):
     """A function that updates the inventory.txt database.
 
     Args:
         modified_list (list): the new and modified list of objects
     """
-    new_inventory = Shoe("Country","Code","Product","Cost","Quantity").__str__()
+    new_inventory = Shoe("Country", "Code", "Product", "Cost", "Quantity").__str__()
     for list in modified_list:
-        new_inventory += f"\n{Shoe(list[0],list[1],list[2],list[3],list[4]).__str__()}"
-    with open("inventory.txt","r") as f:
+        new_inventory += f"\n{Shoe(list[0], list[1], list[2], list[3], list[4]).__str__()}"
+    with open("inventory.txt", "r") as f:
         pass
     f.close()
-    with open("inventory.txt","w") as f:
+    with open("inventory.txt", "w") as f:
         f.write(new_inventory)
     f.close()
-    
+
 
 def re_stock():
     """A function that allows the user to re-stock the lowest quantity product
@@ -183,9 +193,9 @@ def re_stock():
             if int(_[-1]) < low:
                 low = int(_[-1])
         except:
-            print(f"Item at row {index+2} doesn't have correct value as quantity or it is empty.")
-            to_remove = (index,_)
-            to_remove_str = Shoe(_[0],_[1],_[2],_[3],_[4]).__str__()
+            print(f"Item at row {index + 2} doesn't have correct value as quantity or it is empty.")
+            to_remove = (index, _)
+            to_remove_str = Shoe(_[0], _[1], _[2], _[3], _[4]).__str__()
             print(f"{to_remove_str} will be removed from calculation until rectified.")
             shoe_list.remove(_)
     # getting all the rows with min value stock
@@ -194,13 +204,13 @@ def re_stock():
             low_rows.append(index)
     # checking if there is only one item with the lowest quantity
     display = []
-    titles = ["ID","Country","Code","Product","Cost","Quantity"]
+    titles = ["ID", "Country", "Code", "Product", "Cost", "Quantity"]
     if len(low_rows) < 2:
         for index, row in enumerate(shoe_list):
             if row == shoe_list[low_rows[0]]:
-                row.insert(0,str(index))
+                row.insert(0, str(index))
                 display.append(row)
-        print(tabulate(display, headers=titles, tablefmt="rounded_grid",numalign="left"))
+        print(tabulate(display, headers=titles, tablefmt="rounded_grid", numalign="left"))
         # asking the user if quantity should be updated
         user_choice = input("Would you like to update re-stock the item? (y/n) ").lower()
         while True:
@@ -211,7 +221,7 @@ def re_stock():
                     try:
                         # checking that the user input is a valid number
                         user_quantity = int(user_quantity)
-                        
+
                     except ValueError:
                         user_quantity = input("Please enter the quantity to re-stock to: ")
                     # updating the quantity in "shoe_list" and removing the preceding index
@@ -220,7 +230,7 @@ def re_stock():
                     try:
                         # checking if there was any item removed and
                         # if so, adding it back to the list
-                        shoe_list.insert(to_remove[0],to_remove[1])
+                        shoe_list.insert(to_remove[0], to_remove[1])
                     except:
                         pass
                     # updating the "inventory.txt" and displaying an appropriate message
@@ -239,10 +249,9 @@ def re_stock():
         for index, row in enumerate(shoe_list):
             for i in low_rows:
                 if row == shoe_list[int(i)]:
-                    row.insert(0,str(index))
+                    row.insert(0, str(index))
                     display.append(row)
-        print(display)
-        print(tabulate(display, headers=titles, tablefmt="rounded_grid",numalign="left"))
+        print(tabulate(display, headers=titles, tablefmt="rounded_grid", numalign="left"))
         user_choice = ''
         # getting user input on update type and
         # giving an option for exiting the loop
@@ -252,7 +261,7 @@ def re_stock():
 2 - re-stock all items
 3 - no update
 """)
-            if user_choice in ["1","2","3"]:
+            if user_choice in ["1", "2", "3"]:
                 while True:
                     # updating 1 item from the list
                     if user_choice == "1":
@@ -262,7 +271,7 @@ def re_stock():
                             user_quantity = int(user_quantity)
                         except ValueError:
                             print("Please enter a valid number.")
-                        
+
                         user_id_choice = input("Please type in the ID of the product to update: ")
                         try:
                             user_id_choice = int(user_id_choice)
@@ -272,14 +281,14 @@ def re_stock():
                             print("The ID entered is not on the list provided")
                         else:
                             # updating the product selected with the input quantity
-                            for i,row in enumerate(shoe_list):
+                            for i, row in enumerate(shoe_list):
                                 if i == user_id_choice:
-                                    shoe_list[user_id_choice][-1]=user_quantity
+                                    shoe_list[user_id_choice][-1] = user_quantity
                                     # removing the leading index number from the updated number
                                     shoe_list[user_id_choice].pop(0)
                                     # removing the updated item from the list of low stock products
                                     low_rows.pop(low_rows.index(user_id_choice))
-                                    row.insert(0,str(i))
+                                    row.insert(0, str(i))
                                     display.pop(display.index(row))
                             # removing the leading index number from the rest of the products
                             for row in shoe_list:
@@ -288,7 +297,7 @@ def re_stock():
                             try:
                                 # checking if there was any item temporarily removed from the list and,
                                 # if so, adding it back to the list in the same row
-                                shoe_list.insert(to_remove(0),to_remove(1))
+                                shoe_list.insert(to_remove(0), to_remove(1))
                             except:
                                 pass
                             # updating the "inventory.txt" database with the newest information
@@ -297,7 +306,7 @@ def re_stock():
                             # if there are any other items with lowest quantity, their summary
                             print("Product re-stocked")
                             if len(low_rows) != 0:
-                                print(tabulate(display, headers=titles, tablefmt="rounded_grid",numalign="left"))
+                                print(tabulate(display, headers=titles, tablefmt="rounded_grid", numalign="left"))
                             break
                     elif user_choice == "2":
                         # calculation to update all items with the same lowest quantity at once
@@ -309,11 +318,11 @@ def re_stock():
                         for i, row in enumerate(shoe_list):
                             for item in low_rows:
                                 if i == int(item):
-                                    shoe_list[i][-1]=user_quantity
+                                    shoe_list[i][-1] = user_quantity
                                 if shoe_list[i][0].isdigit():
                                     shoe_list[i].pop(0)
                         try:
-                            shoe_list.insert(to_remove(0),to_remove(1))
+                            shoe_list.insert(to_remove(0), to_remove(1))
                         except:
                             pass
                         update_inventory(shoe_list)
@@ -325,37 +334,40 @@ def re_stock():
                     else:
                         print("You have not entered a valid choice. Please try again.")
 
-def seach_shoe():
+
+def search_shoe():
     """A function that requests the user to input a desired code and
     displays the product details linked to the code.
     Displays an error message if the code is not linked to any product.
     """
     shoe_list = read_shoes_data()
     sku = input("What is the product code? ")
-    display = [["Country","Code","Product","Cost","Quantity"]]
+    display = [["Country", "Code", "Product", "Cost", "Quantity"]]
     count = 0
     for _ in shoe_list:
         if _[1] == sku:
             display.append(_)
             count += 1
-    if count > 0:        
-        print(tabulate(display,headers="firstrow",tablefmt="rounded_grid",numalign="left"))
+    if count > 0:
+        print(tabulate(display, headers="firstrow", tablefmt="rounded_grid", numalign="left"))
     else:
         print("Product code is not in the database.")
+
 
 def value_per_item():
     """A function that displays all the products, it calculates the value per product and
     it adds an extra column "Stock value" where it is displayed
     """
     shoe_list = read_shoes_data()
-    display = [["Country","Code","Product","Cost","Quantity","Stock value"]]
+    display = [["Country", "Code", "Product", "Cost", "Quantity", "Stock value"]]
     for _ in shoe_list:
-        _.append(int(_[-1])*int(_[-2]))
+        _.append(int(_[-1]) * int(_[-2]))
         display.append(_)
-    print(tabulate(display,headers="firstrow",tablefmt="rounded_grid",numalign="left"))
+    print(tabulate(display, headers="firstrow", tablefmt="rounded_grid", numalign="left"))
+
 
 def highest_qty():
-    """A function that reads the shoes data from "inventory.txt" and
+    """A function that reads the shoes' data from "inventory.txt" and
     displays the item/items with the highest quantity in stock.
     """
     shoe_list = read_shoes_data()
@@ -369,27 +381,27 @@ def highest_qty():
             if int(line[-1]) > high:
                 high = int(line[-1])
         except:
-            print(f"The item at row {index+2} does not contain a valid quantity.")
-            to_remove = (index,_)
-            to_remove_str = Shoe(_[0],_[1],_[2],_[3],_[4]).__str__()
+            print(f"The item at row {index + 2} does not contain a valid quantity.")
+            to_remove = (index, _)
+            to_remove_str = Shoe(_[0], _[1], _[2], _[3], _[4]).__str__()
             print(f"{to_remove_str} will be removed from calculation until rectified.")
             shoe_list.remove(_)
     for index, _ in enumerate(shoe_list):
         if int(_[-1]) == high:
             high_stock.append(index)
     display = []
-    titles = ["ID","Country","Code","Product","Cost","Quantity"]
+    titles = ["ID", "Country", "Code", "Product", "Cost", "Quantity"]
     if len(high_stock) < 2:
         for index, row in enumerate(shoe_list):
             if int(row[-1]) == high:
-                row.insert(0,str(index))
+                row.insert(0, str(index))
                 display.append(row)
         print("""
                     ╔════════════════════════════╗
                               \033[4m\033[1m\033[91mSale Stock\033[0m
                     ╚════════════════════════════╝
 """)
-        print(tabulate(display, headers=titles, tablefmt="rounded_grid",numalign="left"))
+        print(tabulate(display, headers=titles, tablefmt="rounded_grid", numalign="left"))
         for row in shoe_list:
             try:
                 if row[0].isdigit():
@@ -397,22 +409,22 @@ def highest_qty():
             except:
                 pass
         try:
-            shoe_list.insert(to_remove(0),to_remove(1))
+            shoe_list.insert(to_remove(0), to_remove(1))
         except:
             pass
     else:
         for index, row in enumerate(shoe_list):
             for i in high_stock:
                 if index == i:
-                    row.insert(0,str(index))
+                    row.insert(0, str(index))
                     display.append(row)
-                    
+
         print("""
                     ╔════════════════════════════╗
                               \033[4m\033[1m\033[91mSale Stock\033[0m
                     ╚════════════════════════════╝
 """)
-        print(tabulate(display, headers=titles, tablefmt="rounded_grid",numalign="left"))
+        print(tabulate(display, headers=titles, tablefmt="rounded_grid", numalign="left"))
         for row in shoe_list:
             try:
                 if row[0].isdigit():
@@ -420,11 +432,12 @@ def highest_qty():
             except:
                 pass
         try:
-            shoe_list.insert(to_remove(0),to_remove(1))
+            shoe_list.insert(to_remove(0), to_remove(1))
         except:
             pass
 
-#==========Main Menu=============
+
+# ==========Main Menu=============
 '''
 Create a menu that executes each function above.
 This menu should be inside the while loop. Be creative!
@@ -451,7 +464,7 @@ e - exit
     elif user_choice == "3":
         re_stock()
     elif user_choice == "4":
-        seach_shoe()
+        search_shoe()
     elif user_choice == "5":
         value_per_item()
     elif user_choice == "6":
