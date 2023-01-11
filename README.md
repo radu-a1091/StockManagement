@@ -5,7 +5,9 @@ The tool was built using OOP allows user to read stock data, create new stock en
 
 ## Installation
 Download the inventory.py and inventory.txt to your local machine (preferably in a new empty folder) and open the folder where they've been downloaded in your IDE:
+
     PyCharm: File -> Open
+
     VS Code: File -> Open Folder
 
 Before running the program, install tabulate on your machine. Instructions here:
@@ -20,7 +22,7 @@ The file with the magic.
 The program uses one class - Shoe - which has 3 methods:
 * __get_cost()__ - pulls the cost price for the Shoe object referenced
 * __get_quantity__ - pulls the quantity in stock for the shoe object referenced
-* \_\_str\_\_ - converts the Shoe object's attributes into a string (used to add a new Shoe object to inventory.txt)
+* __\_\_str\_\___ - converts the Shoe object's attributes into a string (used to add a new Shoe object to inventory.txt)
 
 ### Functions
 * __capture_shoes()__ - captures the shoes details from user inputs, does error checking on the user inputs, creates a new shoe object and adds the object to inventory.txt
@@ -58,28 +60,28 @@ __Cost__ - the cost of the product
 __Quantity__ - the quantity in stock
 
 ## Screenshots
-![add shoe to inventory](https://github.com/radu-a1091/finalCapstone/blob/master/add.jpg, "add")
+![add shoe to inventory](https://raw.githubusercontent.com/radu-a1091/finalCapstone/master/add.jpg, "add")
 
-![inventory value](https://github.com/radu-a1091/finalCapstone/blob/master/inv_value.jpg, "inventory value")
+![inventory value](https://raw.githubusercontent.com/radu-a1091/finalCapstone/master/inv_value.jpg, "inventory value")
 
-![current inventory](https://github.com/radu-a1091/finalCapstone/blob/master/view_all.jpg, "current inventory")
+![current inventory](https://raw.githubusercontent.com/radu-a1091/finalCapstone/master/view_all.jpg, "current inventory")
 
-![search by code](https://github.com/radu-a1091/finalCapstone/blob/master/search.jpg, "search by code")
+![search by code](https://raw.githubusercontent.com/radu-a1091/finalCapstone/master/search.jpg, "search by code")
 
-![low quantity stock - 1 item](https://github.com/radu-a1091/finalCapstone/blob/master/restock_low.jpg, "low quantity stock1")
+![low quantity stock - 1 item](https://raw.githubusercontent.com/radu-a1091/finalCapstone/master/restock_low.jpg, "low quantity stock1")
 
-![low quantity stock - multiple](https://github.com/radu-a1091/finalCapstone/blob/master/double_low_stock.jpg, "low quantity2")
+![low quantity stock - multiple](https://raw.githubusercontent.com/radu-a1091/finalCapstone/master/double_low_stock.jpg, "low quantity2")
 
-![overstock](https://github.com/radu-a1091/finalCapstone/blob/master/sale.jpg, "overstock")
+![overstock](https://raw.githubusercontent.com/radu-a1091/finalCapstone/master/sale.jpg, "overstock")
 
 ## To-do list
-* [] - change the class 'Shoe' to adapt any product type
+* [ ] - change the class 'Shoe' to adapt any product type
 
-* [] - update README.md to reflect class change
+* [ ] - update README.md to reflect class change
 
-* [] - add option to do inventory adjustment and record such adjustments
+* [ ] - add option to do inventory adjustment and record such adjustments
 
-* [] - build GUI (Tkinter / Kivy / PySimpleGUI - TBC)  
+* [ ] - build GUI (Tkinter / Kivy / PySimpleGUI - TBC)  
 
 
 
