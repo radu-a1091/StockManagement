@@ -62,17 +62,17 @@ __Quantity__ - the quantity in stock
 ## Screenshots
 ![add shoe to inventory](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/add.jpg "add")
 
-![inventory value](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/inv_value.jpg, "inventory value")
+![inventory value](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/inv_value.jpg "inventory value")
 
-![current inventory](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/view_all.jpg, "current inventory")
+![current inventory](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/view_all.jpg "current inventory")
 
-![search by code](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/search.jpg, "search by code")
+![search by code](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/search.jpg "search by code")
 
-![low quantity stock - 1 item](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/restock_low.jpg, "low quantity stock1")
+![low quantity stock - 1 item](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/restock_low.jpg "low quantity stock1")
 
-![low quantity stock - multiple](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/double_low_stock.jpg, "low quantity2")
+![low quantity stock - multiple](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/double_low_stock.jpg "low quantity2")
 
-![overstock](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/sale.jpg, "overstock")
+![overstock](https://github.com/radu-a1091/finalCapstone/blob/156a12c03c7d9bb3e78c59c8781dce3ddb14eccc/sale.jpg "overstock")
 
 ## To-do list
 * [ ] - change the class 'Shoe' to adapt any product type
