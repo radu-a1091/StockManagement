@@ -65,7 +65,7 @@ The column headers are in the first row, separated by comma:
 
 __Country__ - the country where the product is sold
 
-__Code__ = the SKU of the product
+__Code__ - the SKU of the product
 
 __Product__ - product name
 
