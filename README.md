@@ -1,4 +1,18 @@
-# Simple Stock Management Tool
+
+<h2>Simple Stock Management Tool</h2>
+
+___
+<b>Table of contents</b>
+- [Intro](#intro)
+- [Installation](#installation)
+- [inventory.py](#inventorypy)
+  - [Classes and methods](#classes-and-methods)
+  - [Functions](#functions)
+  - [User menu](#user-menu)
+- [inventory.txt](#inventorytxt)
+- [Screenshots](#screenshots)
+- [To-do list](#to-do-list)
+
 
 ## Intro
 The tool was built using OOP allows user to read stock data, create new stock entry, view all products information, re-order low stock products, search specific SKU and get its details (i.e. product name, cost, quantity, country where it is sold), check stock value and check overstocked item.
